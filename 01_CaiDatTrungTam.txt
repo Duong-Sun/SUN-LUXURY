@@ -1,0 +1,4 @@
+function getMasterSettings() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Settings");
+  return sheet.getDataRange().getValues();
+}

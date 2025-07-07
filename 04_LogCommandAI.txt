@@ -1,0 +1,4 @@
+function logAICall(command, user, result, status) {
+  const logSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("AI_LOG");
+  logSheet.appendRow([new Date(), user, command, result, status]);
+}

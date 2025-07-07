@@ -1,0 +1,7 @@
+
+function backupSnapshot() {
+  const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  const file = DriveApp.getFileById(spreadsheet.getId());
+  const name = spreadsheet.getName() + "_BACKUP_" + Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "yyyyMMdd_HHmm");
+  file.makeCopy(name, DriveApp.getFolderById("<<BACKUP_FOLDER_ID>>"));
+}

@@ -1,0 +1,7 @@
+
+function createSystemFolders() {
+  const parent = DriveApp.createFolder("SUN.PRINCE.GROUP");
+  const sub = parent.createFolder("SUN.LUXURY");
+  const categories = ["GOOGLE.SHEETS", "GOOGLE.FORMS", "GOOGLE.DOCS", "BACKUP"];
+  categories.forEach(name => sub.createFolder(name));
+}

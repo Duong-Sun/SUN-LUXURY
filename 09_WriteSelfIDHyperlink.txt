@@ -1,0 +1,11 @@
+
+function writeSelfLink() {
+  const file = SpreadsheetApp.getActiveSpreadsheet();
+  const id = file.getId();
+  const url = file.getUrl();
+  const sheet = file.getSheetByName("00.META") || file.insertSheet("00.META");
+  sheet.getRange("A1").setValue("FILE_ID");
+  sheet.getRange("B1").setValue(id);
+  sheet.getRange("A2").setValue("FILE_LINK");
+  sheet.getRange("B2").setFormula('=HYPERLINK("' + url + '", "Open File")');
+}

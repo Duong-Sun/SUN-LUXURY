@@ -1,0 +1,10 @@
+function protectCaiDatNguon() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("_CAIDAT_NGUON");
+  if (!sheet) return;
+  const protection = sheet.protect().setDescription("Protected Sheet");
+  protection.removeEditors(protection.getEditors());
+  if (protection.canDomainEdit()) {
+    protection.setDomainEdit(false);
+  }
+  sheet.hideSheet();
+}

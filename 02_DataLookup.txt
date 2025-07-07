@@ -1,0 +1,4 @@
+function getDanhMucLookup(sheetName) {
+  const sheet = SpreadsheetApp.openById('<<DATA_LOOKUP_FILE_ID>>').getSheetByName(sheetName);
+  return sheet.getDataRange().getValues();
+}

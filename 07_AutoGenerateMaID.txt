@@ -1,0 +1,12 @@
+
+function autoGenerateID() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("1.NHAP_LIEU");
+  const data = sheet.getRange("A2:A" + sheet.getLastRow()).getValues();
+  for (let i = 0; i < data.length; i++) {
+    if (!data[i][0]) {
+      const date = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "yyyyMMdd");
+      const id = "ID." + date + "." + Utilities.formatString("%03d", i + 1);
+      sheet.getRange(i + 2, 1).setValue(id);
+    }
+  }
+}

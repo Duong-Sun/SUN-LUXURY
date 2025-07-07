@@ -1,0 +1,10 @@
+
+// 10_Module_Template.gs
+function initializeModuleTemplate() {
+  const templateSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("TEMPLATE");
+  if (!templateSheet) {
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet("TEMPLATE");
+  }
+  const range = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("TEMPLATE").getRange("A1");
+  range.setValue("Module Initialized!");
+}

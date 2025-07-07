@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Điều Khiển Vận Hành - SUN LUXURY Executive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7fafc; }
+        .sidebar { background-color: #1a202c; border-right: 1px solid #2d3748; }
+        .nav-link.active { background-color: #D4AF37; color: #1a202c; font-weight: 700; }
+        .kpi-card { background-color: #ffffff; border-left: 4px solid #D4AF37; transition: transform 0.2s, box-shadow 0.2s; }
+        .kpi-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+    <div class="flex min-h-screen">
+        <aside class="sidebar text-white w-64 p-6 hidden md:block">
+            <h2 class="text-xl font-bold mb-4">SUN LUXURY</h2>
+            <nav>
+                <a href="#tongquan" class="block py-2 nav-link">Tổng Quan</a>
+                <a href="#taichinh" class="block py-2 nav-link">Tài Chính</a>
+                <a href="#kinhdoanh" class="block py-2 nav-link">Kinh Doanh</a>
+            </nav>
+        </aside>
+        <main class="flex-1 p-6" id="main-content">Tải dữ liệu...</main>
+    </div>
+    <script>
+        const main = document.getElementById('main-content');
+        window.addEventListener('hashchange', () => renderView(window.location.hash));
+        function renderView(hash) {
+            let html = '';
+            if (hash === '#tongquan') html = '<h1 class="text-2xl font-bold">Tổng Quan</h1>';
+            else if (hash === '#taichinh') html = '<h1 class="text-2xl font-bold">Tài Chính</h1>';
+            else if (hash === '#kinhdoanh') html = '<h1 class="text-2xl font-bold">Kinh Doanh</h1>';
+            else html = '<h1 class="text-2xl font-bold">Chọn chế độ</h1>';
+            main.innerHTML = html;
+        }
+        renderView(window.location.hash);
+    </script>
+</body>
+</html>
